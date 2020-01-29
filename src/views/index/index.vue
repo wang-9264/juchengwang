@@ -13,12 +13,13 @@
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAAV1BMVEUAAAAjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMiFyKOAAAAHHRSTlMAwLCQ8XftzEURZffhq0IiujHF+bWZiFV/UA/dAxNAxgAAAS1JREFUOMu9kdtyhCAQRJHIVRBF3exu+v+/MyBamsQdKnnIebCnylMF07C/wLuenek7/l15cNe2LdC1ZzogfR1/7NpzAM3wLGIDwMUmhWvOOKBpokOK1bOA1HmYf9xxzqElYPMQgZ5R9EDM2cGl7/h2zZj+OXRZLFfguIaXJQ6x9/wK338VCf5RDMsHoISpie8SK3KkxZA8ofUCKFoUydtSk+IArGkAURPLGkWsHz3WjjaymB6qVg8AZS1Vz2FmxlrhAvASwGCqPY7MCFkrPGxLG1Wp5waEvXBFiQNwTJTogVAmRYsW8Oug00BurXLdWgtZfUKFgrQX9UR2wvpc4i2wg1jEFpLRSLQ5ZsCSngXmbcFJmJeaEdO+2IIay/5wEyimG9sJd968gt8D+w2fxdEtXiJn+tgAAAAASUVORK5CYII=" alt="">    
         </div>    
         </header>
+        <div class="info">
         <swiper :options="{
             loop:true,
             pagination:{
                 el: '.swiper-pagination'
             },
-            freeMode: true,
+            freeMode: false,
             autoplay:true
             }" swipername="horizontal" class="horizontal" :key="this.datalist.length">
             <div class="swiper-slide" v-for="item in datalist" :key="item.image_url">
@@ -28,6 +29,12 @@
         <div class="aa">
             <advertion></advertion>
             <vipahead></vipahead>
+            <div class="guanggao">
+                <img src="https://image.juooo.com/group1/M00/04/37/rAoKNV4hVv2AbMjhAAGqJGUDCcM634.png" alt="">
+            </div>
+            <hotwrap></hotwrap>
+        </div>
+        <category></category>
         </div>
     </div>
 </template>
@@ -36,6 +43,8 @@ import swiper from '@/components/swiper'
 import Axios from 'axios'
 import advertion from './advertion-wrap.vue'
 import vipahead from './vip.vue'
+import hotwrap from './hotwrap'
+import category from './category'
 export default {
     data(){
         return{
@@ -45,7 +54,9 @@ export default {
     components:{
         swiper,
         advertion,
-        vipahead
+        vipahead,
+        hotwrap,
+        category
     },
     mounted(){
         Axios.get('https://api.juooo.com/home/index/getClassifyHome?city_id=0&abbreviation=&version=6.1.1&referer=2').then(res=>{
@@ -60,7 +71,7 @@ header{
     width: 100%;
     height: 0.43rem;
     padding: 0 0.15rem;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     background: #fefefe;
@@ -110,6 +121,8 @@ header{
         }
     }
 }
+.info{
+    margin-bottom: 0.49rem;
 .horizontal{
     width: 3.45rem;
     height: 1.39rem;
@@ -123,5 +136,19 @@ header{
 }
 .aa{
     padding: 0.15rem 0.15rem 0;
+    .guanggao{
+        width: 100%;
+        height: 1rem;
+        border-radius: 0.499rem;
+        margin-bottom: 0.16rem;
+        overflow: hidden;
+        img{
+            vertical-align: middle;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    }
+}
 }
 </style>

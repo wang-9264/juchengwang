@@ -17,9 +17,9 @@
                         pagination:{
                             el: '.swiper-pagination'
                         },
-                        freeMode: true,
+                        freeMode: false,
                         autoplay:true
-                        }" swipername="homebanner" :key="this.datalist.length">
+                        }" swipername="homebanner" class="homebanner" :key="this.datalist.length">
                     <div class="swiper-slide bb" v-for="item in datalist" :key="item.schedular_id" >
                             <div class="list-item">
                                 <img :src="item.pic" alt="">
@@ -32,6 +32,7 @@
                                 </p>
                             </div>
                             <span class="qianggou">立即抢购</span>
+                            <!-- {{index}} -->
                             <!-- {{item.schedular_id}} -->
                     </div>
                 </swiper>
@@ -99,8 +100,8 @@ export default {
         display: flex;
         .bb{
             width: 3.15rem;
-            padding-top: 0.15rem;
-            border-top: 1px solid #f7eada;
+            // padding-top: 0.15rem;
+            // border-top: 1px solid #f7eada;
             display: flex;
             //  justify-content :center;
             .list-item{
@@ -164,5 +165,10 @@ export default {
             }
         }
     }
+}
+.homebanner{
+    width: 100%;
+    padding-top: 0.15rem;
+    border-top: 1px solid #f7eada;
 }
 </style>

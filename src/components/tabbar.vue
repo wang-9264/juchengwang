@@ -40,12 +40,18 @@ ul{
     z-index: 201;
     list-style: none;
     display: flex;
+    // align-items: center;
+    // justify-content: center;
+    align-self: center;
     li{
             flex: 1;
             height: 100%;
-            flex-direction: column;
-            align-items: center;
+            // flex-direction: column;
+            // align-items: center;
             text-align: center;
+            // align-self: center;
+            // justify-content: center;
+            line-height: 0.49rem;
             // float: left;
     }
     // .index{

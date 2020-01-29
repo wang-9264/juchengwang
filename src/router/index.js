@@ -28,10 +28,15 @@ const routes = [
     path: '/eticket',
     name: 'eticket',
     component: Eticket
-  },{
+  },
+  {
     path: '/center',
     name: 'center',
     component: Center
+  },
+  {
+    path: '*',
+    redirect:'/index'
   }
 ]
 

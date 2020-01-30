@@ -40,14 +40,16 @@ import Axios from 'axios'
 export default {
     data(){
         return{
-            datalist:[]
+            datalist:[],
+            citycode:null
         }
     },
     components:{
         swiper
     },
     mounted(){
-        Axios.get('https://api.juooo.com/home/index/getHotsRecommendList?city_id=0&version=6.1.1&referer=2').then(res=>{
+        this.citycode=localStorage.getItem("city_id")?localStorage.getItem("city_id"):0
+        Axios.get(`https://api.juooo.com/home/index/getHotsRecommendList?city_id=${this.citycode}&version=6.1.1&referer=2`).then(res=>{
             // console.log(res.data.data.hots_show_list,4444)
             this.datalist=res.data.data.hots_show_list.splice(0,10)
             // console.log(this.datalist,55555)

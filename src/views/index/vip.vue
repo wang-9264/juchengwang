@@ -49,11 +49,13 @@ export default {
     },
     data(){
         return{
-            datalist:[]
+            datalist:[],
+            citycode:null
         }
     },
     mounted(){
-        Axios.get('https://api.juooo.com/vip/index/getVipHomeSchedular?city_id=0&version=6.1.1&referer=2','city_id=0&version=6.1.1&referer=2').then(res=>{
+        this.citycode=localStorage.getItem("city_id")?localStorage.getItem("city_id"):0
+        Axios.get(`https://api.juooo.com/vip/index/getVipHomeSchedular?city_id=${this.citycode}&version=6.1.1&referer=2','city_id=0&version=6.1.1&referer=2`).then(res=>{
             console.log(res.data.data.discountList,3333)
             this.datalist=res.data.data.discountList
         })

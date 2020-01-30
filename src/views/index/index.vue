@@ -1,9 +1,9 @@
 <template>
     <div>
         <header>
-        <div class="left">
+        <div class="left" @click="cityclick">
             <i></i>    
-            <span>全国</span>
+            <span>{{this.cityname}}</span>
         </div>    
         <div class="center">
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAAXVBMVEUAAACzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7MU5mdkAAAAHnRSTlMA+fES5d1bGgytwpCJIDy9p6Z+eWMpCKRv1sjGlU+Yw8sxAAAA/0lEQVQ4y+2TWXKDMBBENVrAYjHGGPD67n/MVEhiKiORcv7dX6Lr0UMLybz1D+2KQxAI8eT+wqbB8iPb7Da58QLgq9iFZbHf4Pb2M2dc1u3RgjzyeRa68vnoIkguc7rA/MtpwGcqDdApq4d7ui8WW2rPI9ozBTRG6wyD9g4wJqATKu0FvEl1Q7S1vqvm6N4QM2ANbQJ2GXAGXTsQMmCVfmOENt1c4aq9ExzNK6azWF1wCrkxDcS0c5+5BB4a/QNtmTu3Av1unVsDtcnpIeDP7iv/FAAo8nfBA3I71HMlgK03SXcXnupLU2ySphyWMLke2+9TKmZTrl27FhLNWy/oA9CZFFU7WU6aAAAAAElFTkSuQmCC" alt="">    
@@ -35,6 +35,7 @@
             <hotwrap></hotwrap>
         </div>
         <category></category>
+        <recommended></recommended>
         </div>
     </div>
 </template>
@@ -45,10 +46,13 @@ import advertion from './advertion-wrap.vue'
 import vipahead from './vip.vue'
 import hotwrap from './hotwrap'
 import category from './category'
+import recommended from './recommended'
 export default {
     data(){
         return{
-            datalist:[]
+            datalist:[],
+            cityname:'',
+            citycode:null
         }
     },
     components:{
@@ -56,13 +60,21 @@ export default {
         advertion,
         vipahead,
         hotwrap,
-        category
+        category,
+        recommended
     },
     mounted(){
-        Axios.get('https://api.juooo.com/home/index/getClassifyHome?city_id=0&abbreviation=&version=6.1.1&referer=2').then(res=>{
+        this.citycode=localStorage.getItem("city_id")?localStorage.getItem("city_id"):0
+        Axios.get(`https://api.juooo.com/home/index/getClassifyHome?city_id=${this.citycode}&abbreviation=&version=6.1.1&referer=2`).then(res=>{
             console.log(res.data.data.slide_list,11111)
             this.datalist=res.data.data.slide_list
         })
+        this.cityname=localStorage.getItem("city_name")?decodeURIComponent(localStorage.getItem("city_name")):'全国'
+    },
+    methods:{
+        cityclick(){
+            this.$router.push('/selectCity')
+        }
     }
 }
 </script>

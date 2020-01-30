@@ -13,11 +13,13 @@ import Axios from 'axios'
 export default {
     data(){
         return{
-            datalist:[]
+            datalist:[],
+            citycode:null
         }
     },
     mounted(){
-        Axios.get('https://api.juooo.com/home/index/getClassifyHome?city_id=0&abbreviation=&version=6.1.1&referer=2').then(res=>{
+        this.citycode=localStorage.getItem("city_id")?localStorage.getItem("city_id"):0
+        Axios.get(`https://api.juooo.com/home/index/getClassifyHome?city_id=${this.citycode}&abbreviation=&version=6.1.1&referer=2`).then(res=>{
             console.log(res.data.data.classify_list,222222)
             this.datalist=res.data.data.classify_list
         })

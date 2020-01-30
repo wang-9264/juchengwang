@@ -4,6 +4,7 @@ import Index from '../views/index/index.vue'
 import Cinema from '../views/cinema/cinema.vue'
 import Eticket from '../views/eticket/eticket.vue'
 import Center from '../views/center/center.vue'
+import SelectCity from '../views/index/selectCity.vue'
 
 
 Vue.use(VueRouter)
@@ -18,6 +19,10 @@ const routes = [
     path: '/index',
     name: 'index',
     component: Index
+  },
+  {
+    path: '/selectCity',
+    component: SelectCity
   },
   {
     path: '/cinema',

@@ -32,11 +32,13 @@ import column from './listColumn'
 export default {
     data(){
         return{
-            datalist:[]
+            datalist:[],
+            citycode:null
         }
     },
     mounted(){
-        Axios.get('https://api.juooo.com/home/index/getFloorShow?city_id=0&version=6.1.1&referer=2').then(res=>{
+        this.citycode=localStorage.getItem("city_id")?localStorage.getItem("city_id"):0
+        Axios.get(`https://api.juooo.com/home/index/getFloorShow?city_id=${this.citycode}&version=6.1.1&referer=2`).then(res=>{
             // console.log(res.data.data,55555)
             this.datalist=res.data.data
         })

@@ -7,7 +7,7 @@
       infinite-scroll-disabled="loading"
       infinite-scroll-immediate-check	="false">
                 <waterfall :col="col" :data="datalist">
-                <div class="show-module-item" v-for="item in datalist" :key="item.schedular_id">
+                <div class="show-module-item" v-for="item in datalist" :key="item.show_id">
                     <div class="top">
                         <img :src="item.pic" alt="">
                         <span>{{item.city_name}}</span>
@@ -55,7 +55,7 @@ export default {
   mounted(){
         this.citycode=localStorage.getItem("city_id")?localStorage.getItem("city_id"):0
           Axios.get(`https://api.juooo.com/Show/Search/getShowList?city_id=${this.citycode}&category=&keywords=&venue_id=&start_time=&page=1&referer_type=index&version=6.1.1&referer=2`).then(res=>{
-              console.log(res.data.data.list,777777)
+            //   console.log(res.data.data.list,777777)
               this.datalist = res.data.data.list
           })
   },
@@ -63,8 +63,8 @@ export default {
       myLoadMore(){
           this.current++
           this.loading = true;
-          Axios.get(`https://api.juooo.com/Show/Search/getShowList?city_id=0&category=&keywords=&venue_id=&start_time=&page=${this.current}&referer_type=index&version=6.1.1&referer=2`).then(res=>{
-              console.log(this.datalist,777777)
+          Axios.get(`https://api.juooo.com/Show/Search/getShowList?city_id=${this.citycode}&category=&keywords=&venue_id=&start_time=&page=${this.current}&referer_type=index&version=6.1.1&referer=2`).then(res=>{
+            //   console.log(this.datalist,777777)
               this.datalist = [...this.datalist,...res.data.data.list]
             //   group++
               this.loading = false;

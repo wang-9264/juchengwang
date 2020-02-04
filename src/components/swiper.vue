@@ -14,7 +14,7 @@ import 'swiper/css/swiper.min.css' // swiper css
 
 export default {
   mounted () {
-    console.log(this.swipername)
+    // console.log(this.swipername)
     var defaultProps = {
       loop: true,
       // direction:"vertical",

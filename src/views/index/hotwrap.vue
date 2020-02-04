@@ -22,7 +22,7 @@
                         slidesPerView: 4,
                         spaceBetween: 0
                         }" swipername="hotlist" class="hotlist" :key="this.datalist.length">
-                    <div class="swiper-slide bt" v-for="item in datalist" :key="item.show_name" style="width:1rem">
+                    <div class="swiper-slide bt" v-for="item in datalist" :key="item.show_name" style="width:1rem" @click="handleclick(item.schedular_url)">
                         <div>
                             <img :src="item.pic" alt="">
                         </div>    
@@ -54,6 +54,13 @@ export default {
             this.datalist=res.data.data.hots_show_list.splice(0,10)
             // console.log(this.datalist,55555)
         })
+    },
+    methods:{
+        handleclick(url){
+            var id = url.split('/')[4]
+            // console.log(id,888)
+            this.$router.push({ name: 'detail', params: { myid: id } })
+        }
     }
 }
 </script>

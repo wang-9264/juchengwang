@@ -66,7 +66,7 @@ export default {
     mounted(){
         this.citycode=localStorage.getItem("city_id")?localStorage.getItem("city_id"):0
         Axios.get(`https://api.juooo.com/home/index/getClassifyHome?city_id=${this.citycode}&abbreviation=&version=6.1.1&referer=2`).then(res=>{
-            console.log(res.data.data.slide_list,11111)
+            // console.log(res.data.data.slide_list,11111)
             this.datalist=res.data.data.slide_list
         })
         this.cityname=localStorage.getItem("city_name")?decodeURIComponent(localStorage.getItem("city_name")):'全国'

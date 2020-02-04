@@ -1,3 +1,3 @@
 <template>
-    <div>cinema</div>
+    <div>待开发</div>
 </template>

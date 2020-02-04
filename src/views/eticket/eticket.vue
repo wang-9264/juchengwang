@@ -1,3 +1,3 @@
 <template>
-    <div>eticket</div>
+    <div>待开发</div>
 </template>

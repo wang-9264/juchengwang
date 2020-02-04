@@ -1,0 +1,79 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "2685304",
+      "name": "返回",
+      "font_class": "huise",
+      "unicode": "e654",
+      "unicode_decimal": 58964
+    },
+    {
+      "icon_id": "3050508",
+      "name": "定位",
+      "font_class": "location",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "4960826",
+      "name": "icon-address",
+      "font_class": "address",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "6490258",
+      "name": "qianjin",
+      "font_class": "qianjin",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "7111545",
+      "name": "shezhi",
+      "font_class": "chilun",
+      "unicode": "e509",
+      "unicode_decimal": 58633
+    },
+    {
+      "icon_id": "8776996",
+      "name": "icon_feedback",
+      "font_class": "icon-yijianfankui",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "9362788",
+      "name": "credit_people",
+      "font_class": "credit_people_bg",
+      "unicode": "e630",
+      "unicode_decimal": 58928
+    },
+    {
+      "icon_id": "10197059",
+      "name": "card-package",
+      "font_class": "card-package",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "10387785",
+      "name": "icon_help",
+      "font_class": "icon_help",
+      "unicode": "e632",
+      "unicode_decimal": 58930
+    },
+    {
+      "icon_id": "11683076",
+      "name": "ticket-holder",
+      "font_class": "ticket-holder",
+      "unicode": "e641",
+      "unicode_decimal": 58945
+    }
+  ]
+}

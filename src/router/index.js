@@ -5,7 +5,7 @@ import Cinema from '../views/cinema/cinema.vue'
 import Eticket from '../views/eticket/eticket.vue'
 import Center from '../views/center/center.vue'
 import SelectCity from '../views/index/selectCity.vue'
-
+import Detail from '@/views/detail/detail.vue'
 
 Vue.use(VueRouter)
 
@@ -38,6 +38,12 @@ const routes = [
     path: '/center',
     name: 'center',
     component: Center
+  },
+  {
+    path: '/detail/:myid',
+    name: 'detail',
+    component: Detail,
+    props: true
   },
   {
     path: '*',

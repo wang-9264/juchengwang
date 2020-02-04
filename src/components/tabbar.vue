@@ -18,7 +18,7 @@ export default {
         Axios.get('https://api.juooo.com/home/index/getClassifyHome?city_id=0&abbreviation=&version=6.1.1&referer=2').then(res=>{
             // console.log(res.data,1111)
             this.datalist=res.data.data.bottom_list
-            console.log(this.datalist,2222)
+            // console.log(this.datalist,2222)
         })
     }
 }

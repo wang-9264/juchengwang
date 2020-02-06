@@ -10,7 +10,7 @@
                 slidesPerView: 4,
                 spaceBetween: 0
                 }" swipername="column" class="column" :key="this.datalist.length">
-            <div class="swiper-slide co" v-for="item in datalist" :key="item.sche_id">
+            <div class="swiper-slide co" v-for="item in datalist" :key="item.sche_id" @click="detailclick(item.sche_id)">
                 <div>
                     <img :src="item.pic" alt="">
                 </div>
@@ -39,6 +39,11 @@ export default {
     },
     components:{
         swiper
+    },
+    methods:{
+        detailclick(id){
+            this.$router.push({ name: 'detail', params: { myid: id } })
+        }
     }
 }
 </script>

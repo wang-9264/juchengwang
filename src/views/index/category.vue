@@ -8,7 +8,7 @@
                 </div>
             </div>
             <div class="categoray-list-row">
-                <div class="row-bg">
+                <div class="row-bg" @click="detailclick(item.list[0].sche_id)">
                     <div class="row-item">
                         <img :src="item.list[0].pic" alt="">
                     </div>
@@ -45,6 +45,11 @@ export default {
     },
     components:{
         column
+    },
+    methods:{
+        detailclick(id){
+            this.$router.push({ name: 'detail', params: { myid: id } })
+        }
     }
 }
 </script>
